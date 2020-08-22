@@ -4,10 +4,6 @@ class Node:
         self.next=None
 
 class LinkedList:
-
-    """
-    Put docstring here
-    """
     def __init__(self):
         self.head=None
    
