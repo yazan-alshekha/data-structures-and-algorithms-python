@@ -30,3 +30,23 @@ def test_includes_not_exist_value():
     li.append(5)
     result=li.includes(10)
     assert result==-1
+
+
+def test_insertAfter():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.insertAfter('apple','grap')
+    actual=li.head.next.next.value
+    expected='grap'
+    assert expected==actual
+
+
+def test_insertBefore():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.insertBefore('apple','grap')
+    actual=li.head.next.value
+    expected='grap'
+    assert expected==actual
