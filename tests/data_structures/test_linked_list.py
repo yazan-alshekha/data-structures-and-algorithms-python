@@ -41,6 +41,24 @@ def test_insertAfter():
     expected='grap'
     assert expected==actual
 
+def test_insertAfter_first_node():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.insertAfter('orange','grap')
+    actual=li.head.next.value
+    expected='grap'
+    assert expected==actual
+
+def test_insertAfter_last_index():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.insertAfter('apple','grap')
+    actual=li.head.next.next.value
+    expected='grap'
+    assert expected==actual    
+
 
 def test_insertBefore():
     li=LinkedList()
@@ -50,3 +68,60 @@ def test_insertBefore():
     actual=li.head.next.value
     expected='grap'
     assert expected==actual
+
+def test_insertBefore_first_node():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.insertBefore('orange','grap')
+    actual=li.head.value
+    expected='grap'
+    assert expected==actual
+
+
+
+def test_value_not_exists():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd('banana')
+    expected='not exists'      
+    assert actual==expected
+
+
+def test_check_last_value():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd('grap')
+    expected=0      
+    assert actual==expected
+
+def test_value_not_positive_integer():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd(-1)
+    expected='not exists'      
+    assert actual==expected
+
+ 
+
+def test_linked_list_size_1():
+    li=LinkedList()
+    li.append('orange')
+    actual=li.kthFromEnd('orange')
+    expected=0     
+    assert actual==expected
+
+def test_value_in_the_middle():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd('apple')
+    expected=1      
+    assert actual==expected    

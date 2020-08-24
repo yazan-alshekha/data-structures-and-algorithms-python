@@ -61,6 +61,7 @@ class LinkedList:
             return counter    
 
     def insertBefore(self,value,newValue):
+
         '''
         insert new node befor specific value:
             input-->('apple','Grape')
@@ -70,9 +71,9 @@ class LinkedList:
         new_node=Node(newValue)
 
         if self.length()==0:
-            print("the value you entered not exists")
+            return("the value you entered not exists")
              
-        elif self.length()==1 and self.head.value==value:
+        elif  self.head.value==value:
             new_node.next=self.head
             self.head=new_node
         else:
@@ -86,6 +87,7 @@ class LinkedList:
                     previous_node.next=new_node
                 current=current.next
 
+
     def insertAfter(self,value,newValue):
         '''
         insert new node after specific value:
@@ -96,10 +98,11 @@ class LinkedList:
         new_node=Node(newValue)
 
         if self.length()==0:
-            print("the value you entered not exists")
+            return("the value you entered not exists")
              
-        elif self.length()==1 and self.head.value==value:
-            self.append(newValue)
+        elif  self.head.value==value:
+            new_node.next=self.head.next
+            self.head.next=new_node
         else:
             previous_node=self.head
             current=self.head.next
@@ -111,6 +114,27 @@ class LinkedList:
                     current.next=new_node
                 current=current.next
          
+    def kthFromEnd(self,val):
+        '''
+         ['orange','apple','banana']
+
+        method to return reversed index of special value 
+        input -->ll.kthFromEnd('apple')
+        output--> 1
+        '''
+        if self.includes(val)==-1:
+            return 'not exists'
+        index=0
+        current=self.head
+        while current:
+            index+=1
+            if current.value==val:
+                break
+            current=current.next        
+        list_length=self.length()
+        result=list_length-index
+        return result        
+
 
        
 
@@ -123,13 +147,18 @@ class LinkedList:
                 
 if __name__ == "__main__":
     fruits = LinkedList()
-    # fruits.append('apple')
+    fruits.append('apple')
     fruits.append('orange')
     fruits.append('banana')
+    
+    
     # print( fruits.includes('bana'))
     # put your LinkedList implementation here
     print(fruits)
-    # fruits.insertBefore('orange','Grape')
-    fruits.insertAfter('banana','Grap')
+    
+
+    
+    # fruits.insertBefore('apple','Grape')
+    fruits.insertAfter('apple','Grap')
     print(fruits)
     # print(fruits.length())
