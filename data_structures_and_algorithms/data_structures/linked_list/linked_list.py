@@ -122,25 +122,28 @@ class LinkedList:
          
     def kthFromEnd(self,val):
         '''
-         ['orange','apple','banana']
+        method to return value from based on reverse index  
 
-        method to return reversed index of special value 
-        input -->ll.kthFromEnd('apple')
-        output--> 1
+            apple->orange->banana-> NULL 
+
+            input -->ll.kthFromEnd(0)
+            output--> banana
         '''
-        if self.includes(val)==-1:
-            return 'not exists'
-        index=0
-        current=self.head
-        while current:
-            index+=1
-            if current.value==val:
-                break
-            current=current.next        
-        list_length=self.length()
-        result=list_length-index
-        return result        
+        length_of_list=self.length()-1
 
+        if val<= -1:
+            return "you should enter positive value"
+       
+        if length_of_list < val :
+            return "invalid reverse index \n  reverse index should be => length of list"
+       
+        current=self.head
+        index=0
+        while current:
+            if length_of_list-index==val:
+                return current.value
+            current=current.next
+            index+=1
   
             
 

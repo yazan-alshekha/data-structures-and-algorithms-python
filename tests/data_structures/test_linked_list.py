@@ -79,53 +79,6 @@ def test_insertBefore_first_node():
     assert expected==actual
 
 
-
-def test_value_not_exists():
-    li=LinkedList()
-    li.append('orange')
-    li.append('apple')
-    li.append('grap')
-    actual=li.kthFromEnd('banana')
-    expected='not exists'      
-    assert actual==expected
-
-
-def test_check_last_value():
-    li=LinkedList()
-    li.append('orange')
-    li.append('apple')
-    li.append('grap')
-    actual=li.kthFromEnd('grap')
-    expected=0      
-    assert actual==expected
-
-def test_value_not_positive_integer():
-    li=LinkedList()
-    li.append('orange')
-    li.append('apple')
-    li.append('grap')
-    actual=li.kthFromEnd(-1)
-    expected='not exists'      
-    assert actual==expected
-
- 
-
-def test_linked_list_size_1():
-    li=LinkedList()
-    li.append('orange')
-    actual=li.kthFromEnd('orange')
-    expected=0     
-    assert actual==expected
-
-def test_value_in_the_middle():
-    li=LinkedList()
-    li.append('orange')
-    li.append('apple')
-    li.append('grap')
-    actual=li.kthFromEnd('apple')
-    expected=1      
-    assert actual==expected    
-
 def test_zip_empty_linked_list():
      fruits = LinkedList()
      people=LinkedList()
@@ -171,3 +124,50 @@ def test_zip_second_linked_list_isEmpty():
     actual= zip(fruits,people)
     expexted="apple->orange->grap-> NULL"
     assert actual==expexted
+
+def test_kthFromEnd_value_greater_than_length_of_list():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd(10)
+    expected='invalid reverse index \n  reverse index should be => length of list'      
+    assert actual==expected
+
+
+def test_kthFromEnd_last_reverse_index():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd(0)
+    expected='grap'     
+    assert actual==expected
+
+def test_kthFromEnd_Not_positive_value():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    actual=li.kthFromEnd(-1)
+    expected='you should enter positive value'     
+    assert actual==expected    
+
+def test_kthFromEnd_have_1_item():
+    li=LinkedList()
+    li.append('orange')
+    actual=li.kthFromEnd(0)
+    expected='orange'     
+    assert actual==expected 
+
+
+def test_kthFromEnd_value_from_the_middle():
+    li=LinkedList()
+    li.append('orange')
+    li.append('apple')
+    li.append('grap')
+    li.append('banana')
+    li.append('pear')
+    actual=li.kthFromEnd(2)
+    expected='grap'     
+    assert actual==expected     
