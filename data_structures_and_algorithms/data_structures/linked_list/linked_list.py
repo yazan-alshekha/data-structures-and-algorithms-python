@@ -1,7 +1,13 @@
+# from zip_linked_lists import (zip)
+from data_structures_and_algorithms.data_structures.linked_list.zip_linked_lists import zip
+
+
 class Node:
     def __init__(self,value):
         self.value=value
         self.next=None
+
+
 
 class LinkedList:
     def __init__(self):
@@ -135,9 +141,16 @@ class LinkedList:
         result=list_length-index
         return result        
 
+  
+            
+
+
+
 
        
+    
 
+                   
        
 
 
@@ -149,16 +162,30 @@ if __name__ == "__main__":
     fruits = LinkedList()
     fruits.append('apple')
     fruits.append('orange')
-    fruits.append('banana')
+    fruits.append('grap')
     
+
+    people=LinkedList()
+    people.append('yazan')
+    people.append('rami')
+    people.append('rami')
+    people.append('hamza')
+    
+    
+
+    # pepole.append('yara')
+   
+    print(zip(fruits,people))
+    # print(fruits)
+
     
     # print( fruits.includes('bana'))
     # put your LinkedList implementation here
-    print(fruits)
+    # print(fruits)
     
 
     
     # fruits.insertBefore('apple','Grape')
-    fruits.insertAfter('apple','Grap')
-    print(fruits)
+    # fruits.insertAfter('apple','Grap')
+    # print(fruits)
     # print(fruits.length())

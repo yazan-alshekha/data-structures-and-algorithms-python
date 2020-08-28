@@ -1,7 +1,7 @@
 from data_structures_and_algorithms.data_structures.linked_list.linked_list import (
     LinkedList,
 )
-
+from data_structures_and_algorithms.data_structures.linked_list.zip_linked_lists import zip
 
 def test_instance():
     ll = LinkedList()
@@ -125,3 +125,49 @@ def test_value_in_the_middle():
     actual=li.kthFromEnd('apple')
     expected=1      
     assert actual==expected    
+
+def test_zip_empty_linked_list():
+     fruits = LinkedList()
+     people=LinkedList()
+     actual= zip(fruits,people)
+     expexted="Null"
+     assert actual==expexted
+
+def test_zip_linked_list():
+    fruits = LinkedList()
+    fruits.append('apple')
+    fruits.append('orange')
+    fruits.append('grap')
+
+    people=LinkedList()
+    people.append('yazan')
+    people.append('rami')
+    people.append('hamza')
+    
+    actual= zip(fruits,people)
+    expexted="apple->yazan->orange->rami->grap->hamza-> NULL"
+    assert actual==expexted
+
+def test_zip_first_linked_list_isEmpty():
+    fruits = LinkedList()
+
+    people=LinkedList()
+    people.append('yazan')
+    people.append('rami')
+    people.append('hamza')
+    
+    actual= zip(fruits,people)
+    expexted="yazan->rami->hamza-> NULL"
+    assert actual==expexted
+
+def test_zip_second_linked_list_isEmpty():
+    fruits = LinkedList()
+    fruits.append('apple')
+    fruits.append('orange')
+    fruits.append('grap')
+
+    people=LinkedList()
+
+    actual= zip(fruits,people)
+    expexted="apple->orange->grap-> NULL"
+    assert actual==expexted
