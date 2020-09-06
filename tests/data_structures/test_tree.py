@@ -80,4 +80,15 @@ def test_contains(prepare_bst):
     expected=True
     actual=bst.contains(bst.root,8)
     assert expected==actual
-    
+
+  
+def test_maximum_value(prepare_bt):
+    actual = prepare_bt.find_maximum_value()
+    expected = 13
+    assert actual == expected
+
+def test_maximum_value_empty_tree():
+    bt = BinaryTree()
+    actual = bt.find_maximum_value()
+    expected = "Null Tree"
+    assert actual == expected

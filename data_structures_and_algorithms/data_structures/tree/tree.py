@@ -11,6 +11,14 @@ class BinaryTree:
         self.root = None
 
     def pre_order(self):
+        '''
+        root>>left>>right
+
+        function to retrieve value of tree
+
+        input--> nothing
+        output--> list of value sorted as pre-order
+        '''
         output = []
         def _walk(node):
             if not node:
@@ -23,6 +31,14 @@ class BinaryTree:
         return output
     
     def inOrder(self):
+        '''
+        left>>root>>right
+
+        function to retrieve value of tree
+
+        input--> nothing
+        output--> list of value sorted as in-order
+        '''
         output = []
         def _walk(node):
             if not node:
@@ -35,6 +51,14 @@ class BinaryTree:
         return output
 
     def Post_order(self):
+        '''
+        left>>right>>root
+
+        function to retrieve value of tree
+
+        input--> nothing
+        output--> list of value sorted as post-order
+        '''
         output = []
         def _walk(node):
             if not node:
@@ -45,6 +69,26 @@ class BinaryTree:
 
         _walk(self.root)
         return output        
+
+    def find_maximum_value(self):
+        '''
+        this function should return the maximum value in the binary tree
+        input--> nothing
+        output--> the maximum numeric value
+        '''
+        result= self.pre_order()
+        try:
+            maximum_value=result[0]
+            
+        except Exception as identifier:
+            return "Null Tree"
+            
+
+        for i in result:
+            print(maximum_value,i)
+            if maximum_value<i:
+                maximum_value=i 
+        return maximum_value        
 
 
 class BinarySearchTree(BinaryTree):
@@ -78,7 +122,8 @@ class BinarySearchTree(BinaryTree):
                 return False
         except Exception as error:
             return 'error in this function'
-        
+
+
           
             
            
@@ -89,18 +134,30 @@ class BinarySearchTree(BinaryTree):
 
 
 if __name__ == '__main__':
-   def prepare_bst():
-    bst = BinarySearchTree()
-    bst.add(23)
+   
+    # bst = BinarySearchTree()
+    # bst.add(23)
     # bst.add(8)
     # bst.add(4)
     # bst.add(42)
     # bst.add(27)
-    assert bst.root.value == 23
+
+    # assert bst.root.value == 23
     # assert bst.root.right.value == 42
     # assert bst.root.left.value == 8
     # assert bst.root.left.left.value == 4
     # assert bst.root.right.left.value == 27
-    print('succes')
+    
     # print(bst.contains(23))
      
+
+    bt = BinaryTree()
+    # bt.root = Node(7)
+    # bt.root.left = Node(13)
+    # bt.root.right = Node(5)
+    # bt.root.left.left = Node(8)
+    # bt.root.left.right = Node(9)
+    # bt.root.right.left = Node(1)
+    # bt.root.right.right = Node(-4)
+    print(bt.find_maximum_value())
+    print('succes')
