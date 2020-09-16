@@ -70,6 +70,37 @@ class BinaryTree:
         _walk(self.root)
         return output        
 
+    def breadth_first(self):
+        breadth_list=[]
+        queue_list=[]
+        try :
+            if not self.root:
+                return "Empty tree"
+            else :
+                if self.root:
+                    queue_list.append(self.root)
+                while queue_list:
+                    current=queue_list.pop(0)
+                    breadth_list.append(current.value)
+
+                    if current.left:
+                        queue_list.append(current.left)
+                    if current.right:
+                        queue_list.append(current.right)
+
+                return breadth_list
+
+        except Exception as ex:
+            return f'an Error occured {ex}'
+
+
+                 
+
+
+
+
+
+
     def find_maximum_value(self):
         '''
         this function should return the maximum value in the binary tree
@@ -149,15 +180,6 @@ if __name__ == '__main__':
     # assert bst.root.right.left.value == 27
     
     # print(bst.contains(23))
-     
+    
 
-    bt = BinaryTree()
-    # bt.root = Node(7)
-    # bt.root.left = Node(13)
-    # bt.root.right = Node(5)
-    # bt.root.left.left = Node(8)
-    # bt.root.left.right = Node(9)
-    # bt.root.right.left = Node(1)
-    # bt.root.right.right = Node(-4)
-    print(bt.find_maximum_value())
     print('succes')
