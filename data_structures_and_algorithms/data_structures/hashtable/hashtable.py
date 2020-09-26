@@ -1,5 +1,7 @@
 from list import Node,LinkedList
 
+
+
 class Hashtable:
     def __init__(self,size=1024):
         self.map=[None]*size
@@ -15,7 +17,16 @@ class Hashtable:
         self.map[hashed_key].append((key,value))
     
     def get(self,key):
-        pass
+        current=self.map[self.hash(key)].head
+        lis=[]
+        while current:
+            if current.value[0]==key:
+                lis.append(current.value)
+            
+            current=current.next
+        return lis  
+         
+
     
     def hash(self,key):
         hashed_total=0
@@ -25,5 +36,11 @@ class Hashtable:
     
     
     def contains(self,key):
-        pass
+
+        if  self.map[self.hash(key)]:
+            return True
+        else:
+            return False    
+
+     
 
