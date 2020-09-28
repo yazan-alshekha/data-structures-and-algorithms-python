@@ -1,4 +1,4 @@
-from list import Node,LinkedList
+from data_structures_and_algorithms.data_structures.hashtable.list import Node,LinkedList
 
 
 
