@@ -9,8 +9,7 @@ def test_new_method_appendded():
     assert expected ==actual
 
 
-def test_breadth_first_method(pre):
-   
+def test_breadth_first_method(pre):  
     expected = ['a', 'b', 'c', 'd', 'f']
     actual = pre.breadth_first("a")
     assert expected ==actual
