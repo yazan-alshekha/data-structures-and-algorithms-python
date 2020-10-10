@@ -7,9 +7,7 @@ def test_conn():
     pass
 
 def test_new_method_appendded():
-    """
-    To test if breadth_first method was appended correctly. I didnt create a new graph to create one new method (waste of time)
-    """
+    
     expected = True
     actual = "breadth_first" in dir(Graph)
     assert expected ==actual
