@@ -4,7 +4,6 @@ import pytest
 
 
 def test_new_method_appendded():
-    
     expected = True
     actual = "breadth_first" in dir(Graph)
     assert expected ==actual
